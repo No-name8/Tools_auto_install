@@ -46,3 +46,5 @@ if [ "$debian" = true ]; then
     sudo apt install -y gobuster
     sudo apt install -y nikto
 fi 
+
+# not adding the other os cause i dont use them
