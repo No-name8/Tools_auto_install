@@ -1,2 +1,48 @@
-#!/bin/bash
+#!/bin/bash 
 
+if grep -q "etc/os-relaease" /etc/os-release; 
+then
+    if grep -q "debian" /etc/os-release;
+    then 
+        echo "Debian detected"
+        debian = true 
+        sudo apt update
+        sudo apt install -y python3 python3-pip
+    elif grep -q "centos" /etc/os-release;
+    then 
+        centos = true
+        echo "CentOS detected"
+        sudo yum install -y python3 python3-pip
+    elif grep -q "fedora" /etc/os-release;
+    then 
+        fedora = true
+        echo "Fedora detected"
+        sudo dnf install -y python3 python3-pip
+    else 
+        echo "Unsupported Linux distribution"
+        exit 1
+    fi
+else 
+    echo "This script is currently unsupported for your OS"
+    exit 1
+fi
+
+#install basic tools 
+if [ "$debian" = true ]; then
+    sudo apt install -y nmap 
+    sudo apt install -y git
+    sudo apt install -y metasploit-framework
+    sudo apt install -y hydra
+    sudo apt install -y ncat 
+    sudo apt install -y wireshark 
+    sudo apt install -y netcat
+    sudo apt install -y john
+    sudo apt install -y TheHarvester
+    sudo apt install -y gobuster
+    sudo apt install -y Parsero
+    sudo apt install -y hashcat
+    sudo apt install -y sqlmap
+    sudo apt install -y powershell 
+    sudo apt install -y gobuster
+    sudo apt install -y nikto
+fi 
