@@ -29,6 +29,7 @@ fi
 
 #install basic tools 
 if [ "$debian" = true ]; then
+    sudo apt install -y openvpn
     sudo apt install -y nmap 
     sudo apt install -y git
     sudo apt install -y metasploit-framework
@@ -45,6 +46,11 @@ if [ "$debian" = true ]; then
     sudo apt install -y powershell 
     sudo apt install -y gobuster
     sudo apt install -y nikto
+
+    sudo add-apt-repository ppa:deki/firejai
+    sudo apt-get update
+    sudo apt-get install -y firejai
+    sudo apt install -y firetools
 fi 
 
 # not adding the other os cause i dont use them
