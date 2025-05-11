@@ -29,6 +29,9 @@ fi
 
 #install basic tools 
 if [ "$debian" = true ]; then
+
+    sudo apt install -y gh
+
     sudo apt install -y openvpn
     sudo apt install -y nmap 
     sudo apt install -y git
@@ -47,10 +50,12 @@ if [ "$debian" = true ]; then
     sudo apt install -y gobuster
     sudo apt install -y nikto
 
-    sudo add-apt-repository ppa:deki/firejai
+    sudo add-apt-repository ppa:deki/firejail
     sudo apt-get update
-    sudo apt-get install -y firejai
+    sudo apt-get install -y firejail
     sudo apt install -y firetools
+
+
 fi 
 
 # not adding the other os cause i dont use them
