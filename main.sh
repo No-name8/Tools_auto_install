@@ -7,18 +7,6 @@
         debian=true 
         sudo apt update
         sudo apt install -y python3 python3-pip
-    elif grep -q "centos" /etc/os-release;
-    then 
-        # shellcheck disable=SC2034
-        centos=true
-        echo "CentOS detected"
-        sudo yum install -y python3 python3-pip
-    elif grep -q "fedora" /etc/os-release;
-    then 
-        # shellcheck disable=SC2034
-        fedora=true
-        echo "Fedora detected"
-        sudo dnf install -y python3 python3-pip
     else 
         echo "Unsupported Linux distribution"
         exit 1
@@ -32,7 +20,6 @@ if [ "$debian" = true ]; then
     sudo apt install -y openvpn
     sudo apt install -y nmap 
     sudo apt install -y git
-    sudo apt install -y metasploit-framework
     sudo apt install -y hydra
     sudo apt install -y ncat 
     sudo apt install -y wireshark 
