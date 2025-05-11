@@ -1,31 +1,28 @@
 #!/bin/bash 
 
-if grep -q "etc/os-relaease" /etc/os-release; 
-then
+
     if grep -q "debian" /etc/os-release;
     then 
         echo "Debian detected"
-        debian = true 
+        debian=true 
         sudo apt update
         sudo apt install -y python3 python3-pip
     elif grep -q "centos" /etc/os-release;
     then 
-        centos = true
+        # shellcheck disable=SC2034
+        centos=true
         echo "CentOS detected"
         sudo yum install -y python3 python3-pip
     elif grep -q "fedora" /etc/os-release;
     then 
-        fedora = true
+        # shellcheck disable=SC2034
+        fedora=true
         echo "Fedora detected"
         sudo dnf install -y python3 python3-pip
     else 
         echo "Unsupported Linux distribution"
         exit 1
     fi
-else 
-    echo "This script is currently unsupported for your OS"
-    exit 1
-fi
 
 #install basic tools 
 if [ "$debian" = true ]; then
@@ -55,6 +52,9 @@ if [ "$debian" = true ]; then
     sudo apt-get install -y firejail
     sudo apt install -y firetools
 
+    sudo apt autoremove -y
+    sudo apt autoclean -y
+    
 
 fi 
 
