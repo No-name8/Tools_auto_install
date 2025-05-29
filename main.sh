@@ -17,6 +17,7 @@ if [ "$debian" = true ]; then
 
     sudo apt install -y gh
 
+    sudo apt install -y enum4linux
     sudo apt install -y openvpn
     sudo apt install -y nmap 
     sudo apt install -y git
@@ -33,6 +34,12 @@ if [ "$debian" = true ]; then
     sudo apt install -y powershell 
     sudo apt install -y gobuster
     sudo apt install -y nikto
+    sudo apt install -y subfinder
+    sudo apt install -y assetfinder
+    sudo apt install -y httpx
+    sudo apt install -y ffuf
+    wget https://raw.githubusercontent.com/n0kovo/n0kovo_subdomains/refs/heads/main/n0kovo_subdomains_medium.txt
+
 
     sudo add-apt-repository ppa:deki/firejail
     sudo apt-get update
